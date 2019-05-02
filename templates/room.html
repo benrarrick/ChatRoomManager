@@ -1,0 +1,32 @@
+<!-- #Benjamin Rarrick
+#btr21 3929011
+#Project 3
+#7/16/18
+ -->
+ 
+<!-- Page to display a chatroom -->
+
+{% extends "layout.html" %}
+
+{% block body %}
+  {% if room['senderID'] is defined %}
+    <div id="chatRoom">
+        <div style=" text-align: center">
+            <h1> {{ room['roomName'] }} </h1>
+        </div>
+        <ul id="messageList">
+        </ul>
+    </div>
+    <div id="messageArea">
+        <div >
+            <input type="text" id="newMessage" name="newMessage" style= "width: 60%">
+            <label for="newMessage">Message Text</label>
+            <button id="messageSend" style= "align: center">Send Message</button>
+        </div>
+        
+        </br>
+        <button id="leaveRoom" style= "align: center">Leave Chatroom</button>
+    </div>
+  {% else %}
+  {% endif %}
+{% endblock %}

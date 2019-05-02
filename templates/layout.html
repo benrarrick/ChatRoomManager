@@ -1,0 +1,47 @@
+<!-- #Benjamin Rarrick
+#btr21 3929011
+#Project 3
+#7/16/18
+ -->
+<!-- Layout page for the main and room pages -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!------------ Link to CSS Style sheet----------------------------------->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    {% if user is defined %}
+    <script type="text/javascript" src="{{ url_for('static', filename='chatRooms.js') }}"></script>
+    {% else %}
+    <script type="text/javascript" src="{{ url_for('static', filename='messaging.js') }}"></script>
+    {% endif %}
+	
+    
+	<meta charset="UTF-8">
+</head>
+
+<div id= "header">
+    {% if user is defined %}
+    <span id ="defaultHeader">{{ user.name }}</span>
+    {% else %}
+     <span id ="defaultHeader">{{ room.senderName }}</span>
+    {% endif %}
+    <nav>
+        <a id= "defaultLogout"  href="/logout">Logout</a>
+    </nav>
+    <!-- Link to logout that will be displayed for all users, always -->
+</div>
+ <!-- Div to display flashed messages -->
+ 
+<div>
+ {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div><h4 class="error-message">{{ message }}</h4></div>
+                {% endfor %}
+            {% endif %}
+    {% endwith %}
+</div>
+<body>
+ {% block body %}{% endblock %}
+ </body>
+</html>

@@ -1,0 +1,76 @@
+<!-- #Benjamin Rarrick
+#btr21 3929011
+#Project 3
+#7/16/18
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!------------ Link to CSS Style sheet----------------------------------->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body>
+
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div><h4 class="error-message">{{ message }}</h4></div>
+                {% endfor %}
+            {% endif %}
+    {% endwith %}
+     <!------------Form to Login----------------------------------->
+	<form action="" method="post">
+		<h3 id="loginBanner">
+			Login
+		</h3>
+
+		<div id="loginContainer">
+			<div >
+				<input type="text" id="lusername" name="lusername">
+				<label for="lusername">Username</label>
+			</div>
+
+			<div>
+				<input type="password" id="lpassword" name="lpassword">
+				<label for="lpassword">Password</label>
+			</div>
+			<button  formaction="/login">Sign In</button>
+		</div>
+    </form>
+		
+
+		</br>
+		</br>
+         <!------------ Form to sign up --------------------------------->
+    <form action="" method="post">
+		<h3 id="signupBanner">
+			Don't have an account? Sign up!
+		</h3>
+		<div id="signupContainer">
+			<div id="input_name">
+				<input type="text" id="sname" name="sname">
+				<label for="sname">Name</label>
+			</div>
+
+			<div >
+				<input type="text" id="susername" name="susername">
+				<label for="susername">Username</label>
+			</div>
+
+			<div>
+				<input type="password" id="spassword" name="spassword">
+				<label for="spassword">Password</label>
+			</div>
+			<button formaction="/signup">Sign Up</button>
+		</div>
+		
+	</form>
+
+
+</body>
+</html>
